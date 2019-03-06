@@ -2,7 +2,7 @@
 
 ## Challange 1
 
-```
+```js
 describe('example tests', function() {
   it('should return correct text', function() {
     Test.assertEquals(likes([]), 'no one likes this');
@@ -15,7 +15,7 @@ describe('example tests', function() {
 ```
 
 ## Solution
-```
+```js
 function likes(names) {
   if (Object.prototype.toString.call(names) === '[object Array]' && names.length > 0) {
     return names.reduce((acc, item, index, arr) => {
