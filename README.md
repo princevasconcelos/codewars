@@ -18,7 +18,7 @@ describe('example tests', function() {
 ```js
 function likes(names) {
   if (Object.prototype.toString.call(names) === '[object Array]' && names.length > 0) {
-    return names.reduce((acc, item, index, arr) => {
+    return names.reduceRight((acc, item, index, arr) => {
       const isLast = index === arr.length - 1;
       const hasAnd = !!acc.match(/and/g);
       const hasNameWithSemicolon = !!acc.match(/\w+,/g)
