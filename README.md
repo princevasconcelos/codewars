@@ -1,4 +1,8 @@
-``
+# Code Wars code
+
+## Challange 1
+
+```
 describe('example tests', function() {
   it('should return correct text', function() {
     Test.assertEquals(likes([]), 'no one likes this');
@@ -8,9 +12,10 @@ describe('example tests', function() {
     Test.assertEquals(likes(['Alex', 'Jacob', 'Mark', 'Max']), 'Alex, Jacob and 2 others like this');
   });
 });
-``
+```
 
-``
+## Solution
+```
 function likes(names) {
   if (Object.prototype.toString.call(names) === '[object Array]' && names.length > 0) {
     return names.reduce((acc, item, index, arr) => {
@@ -31,5 +36,4 @@ function likes(names) {
   
   return 'no one likes this';
 }
-``
-
+```
