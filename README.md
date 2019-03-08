@@ -110,3 +110,54 @@
   const dividedBy = rightValue => leftValue => Math.floor(leftValue / rightValue);
 ```
 
+# Challange 6
+```js
+  Test.assertEquals( digital_root(16), 7 )
+  Test.assertEquals( digital_root(456), 6 )
+```
+
+## Solution
+```js
+  const digital_root = n => (''+n).length > 1 ? digital_root(Array.from(''+n, Number).reduce((acc, item) => acc + item)) : n;
+```
+
+## Others Solution
+```js
+  function digital_root(n) {
+    return (n - 1) % 9 + 1;
+  }
+```
+
+
+# Challange 7
+```js
+  Test.describe("longestConsec",function() {
+  Test.it("Basic tests",function() { 
+      testing(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], 2), "abigailtheta")
+      testing(longestConsec(["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"], 1), "oocccffuucccjjjkkkjyyyeehh")
+      testing(longestConsec([], 3), "")
+      testing(longestConsec(["itvayloxrp","wkppqsztdkmvcuwvereiupccauycnjutlv","vweqilsfytihvrzlaodfixoyxvyuyvgpck"], 2), "wkppqsztdkmvcuwvereiupccauycnjutlvvweqilsfytihvrzlaodfixoyxvyuyvgpck")
+      testing(longestConsec(["wlwsasphmxx","owiaxujylentrklctozmymu","wpgozvxxiu"], 2), "wlwsasphmxxowiaxujylentrklctozmymu")
+      testing(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], -2), "")
+      testing(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 3), "ixoyx3452zzzzzzzzzzzz")
+      testing(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 15), "")
+      testing(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 0), "")
+  })})
+```
+
+## Solution
+```js
+  const longestConsec = (strarr, k) => {
+    let longest = '';
+
+    if (strarr.length === 0 || k > strarr.length || k <= 0)
+      return longest;
+    
+    strarr.forEach((_, i) => {
+      const newStr = [...strarr].splice(i, k).join('');
+      if (newStr.length > longest.length)
+        longest = newStr
+    })
+    return longest;
+  }
+```
